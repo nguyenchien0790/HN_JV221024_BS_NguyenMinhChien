@@ -61,32 +61,34 @@ public class ProductManagement {
         for (int i = 0; i < index; i++) {
             if (arrProduct[i].getProductId()==checkId){
                 arrProduct[i].setProductStatus(!arrProduct[i].isProductStatus());
+                System.out.println("Đã cập nhật trạng thái");
+            }else {
+                System.out.println("Không có mã sản phầm vừa nhập");
             }
         }
-        System.out.println("Đã cập nhật trạng thái");
+
     }
 
     public static void deleteProductById(Scanner scanner) {
         System.out.println("Nhập mã ID sản phẩm cần xóa");
         int c;
         int checkIdDelete = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i < index; i++) {
+        for (int i =c= 0; i < index; i++) {
             if (arrProduct[i].getProductId()==checkIdDelete){
-                for (int j=c= 0; j < index; i++) {
-                    if (arrProduct[j].getProductId() != checkIdDelete) {
-                        arrProduct[c] = arrProduct[j];
+                    if (arrProduct[i].getProductId() != checkIdDelete) {
+                        arrProduct[c] = arrProduct[i];
                         c++;
-                    }
                 }
                 index = c;
-
                 System.out.println("Dánh sách sản phẩm còn lại sau khi xóa sản phẩm có ID : " + checkIdDelete + " là: ");
                 System.out.printf("%-10s%-30s%-20s%-30s%-15s%-15s%-15s%-10s\n","Mã SP","Tên Sản Phẩm","Tiêu đề"
                         ,"Mô tả","Giá Nhập","Giá Xuất","Lợi Nhuận","Trạng thái");
                 for (int j = 0; j < index; i++) {
                     arrProduct[i].displayData();
                 }
-            }else {
+            }
+
+            else {
                 System.out.println("Không tìm thấy Id vừa nhập");
             }
         }
@@ -119,6 +121,7 @@ public class ProductManagement {
             }
         }
         System.out.println("Đã xắp xếp sản phẩm theo lợi nhận tăng dần !");
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
     }
 
     public static void displayDataProduct() {
